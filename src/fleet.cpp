@@ -7,12 +7,12 @@ Fleet::Fleet()
   boardDimensions = config.getConfig(config.configFile);
 }
 
-bool Fleet::validChoice(std::vector<std::vector<std::string>> gameBoard, int xPos, int yPos) 
+bool Fleet::validChoice(std::vector<std::vector<std::string> > gameBoard, int xPos, int yPos) 
 {
   return gameBoard[xPos][yPos] == " . ";
 }
 
-std::vector<std::vector<std::string>> Fleet::updateBoard(std::vector<std::vector<std::string>> gameBoard)
+std::vector<std::vector<std::string> > Fleet::updateBoard(std::vector<std::vector<std::string> > gameBoard)
 {
   int boatsPlaced = 0;
   int boat = 0;
@@ -89,7 +89,7 @@ std::vector<std::vector<std::string>> Fleet::updateBoard(std::vector<std::vector
   return gameBoard;
 }
 
-std::vector<std::vector<std::string>> Fleet::updateBoardComputer(std::vector<std::vector<std::string>> gameBoard) 
+std::vector<std::vector<std::string> > Fleet::updateBoardComputer(std::vector<std::vector<std::string> > gameBoard) 
 {
   // Seed for random number generation
   std::srand(std::time(0));
@@ -117,7 +117,7 @@ std::vector<std::vector<std::string>> Fleet::updateBoardComputer(std::vector<std
   return gameBoard;
 }
 
-void Fleet::printBoard(std::vector<std::vector<std::string>> gameBoard) 
+void Fleet::printBoard(std::vector<std::vector<std::string> > gameBoard) 
 {
   int gridCounter = 0;
   std::cout << "  0   1   2   3   4   5   6   7   8   9" << std::endl;
@@ -141,7 +141,7 @@ void Fleet::printBoard(std::vector<std::vector<std::string>> gameBoard)
   }
 }
 
-std::vector<std::vector<std::string>> Fleet::boatRemove(std::vector<std::vector<std::string>> gameBoard, char shipSymbol)
+std::vector<std::vector<std::string> > Fleet::boatRemove(std::vector<std::vector<std::string> > gameBoard, char shipSymbol)
 {
   Config cfg;
   std::pair<int, int> dimensions = cfg.getConfig(cfg.configFile);
@@ -161,7 +161,7 @@ std::vector<std::vector<std::string>> Fleet::boatRemove(std::vector<std::vector<
   return gameBoard;
 }
 
-bool Fleet::tryPlaceShip(std::vector<std::vector<std::string>> &gameBoard, const std::pair<std::string, int> &boat, int startRow, int startCol, char orientation)
+bool Fleet::tryPlaceShip(std::vector<std::vector<std::string> > &gameBoard, const std::pair<std::string, int> &boat, int startRow, int startCol, char orientation)
 {
   int row = startRow;
   int col = startCol;
@@ -216,7 +216,7 @@ bool Fleet::tryPlaceShip(std::vector<std::vector<std::string>> &gameBoard, const
   return true;
 }
 
-bool Fleet::allShipsDestroyed(std::vector<std::vector<std::string>> gameBoard) 
+bool Fleet::allShipsDestroyed(std::vector<std::vector<std::string> > gameBoard) 
 {
   Config cfg;
   std::pair<int, int> dimensions = cfg.getConfig(cfg.configFile);

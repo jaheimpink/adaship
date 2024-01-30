@@ -33,12 +33,12 @@ std::pair<int, int> Config::getConfig(std::string configFile)
   }
 }
 
-std::vector<std::pair<std::string, int>> Config::getBoatConfig(std::string configFile)
+std::vector<std::pair<std::string, int> > Config::getBoatConfig(std::string configFile)
 {
   std::string line;
   std::string value;
   std::string delimiter;
-  std::vector<std::pair<std::string, int>> fleet;
+  std::vector<std::pair<std::string, int> > fleet;
 
   std::ifstream config(configFile);
   while (getline(config, line))

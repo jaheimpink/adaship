@@ -6,7 +6,7 @@ AdaShip is a battleship-style game implemented in C++. The game involves two pla
 ### Initial working plan
 Due to unforseen circumstances I had to take a very 'singular' extreme programming approach. This allowed me to pick up new things in c++ very quickly. However, this approach came at a cost of a lack of documentation and design which led to me being stuck on certain bugs time-consuming.
 
-The main plan was to have a singular 
+T
 
 ### Decomposition and Analysis
 

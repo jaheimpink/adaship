@@ -4,7 +4,7 @@ Board::Board() : boardConfig(Config().getConfig("config.ini"))
 {
   Config gameconfig;
   boardConfig = gameconfig.getConfig(gameconfig.configFile);
-  gameBoard = std::vector<std::vector<std::string>>(boardConfig.first, std::vector<std::string>(boardConfig.second, " . "));
+  gameBoard = std::vector<std::vector<std::string> >(boardConfig.first, std::vector<std::string>(boardConfig.second, " . "));
 }
 
 void Board::printBoard() {
@@ -25,7 +25,7 @@ void Board::printBoard() {
   }
 }
 
-void Board::boatRemove(std::vector<std::vector<std::string>> gameBoard, std::string shipSymbol) {
+void Board::boatRemove(std::vector<std::vector<std::string> > gameBoard, std::string shipSymbol) {
   int counter = 0;
   int counter2 = 0;
   for (const auto& row : gameBoard) {
@@ -39,7 +39,7 @@ void Board::boatRemove(std::vector<std::vector<std::string>> gameBoard, std::str
   }
 }
 
-std::vector<std::vector<std::string>> Board::shoot(std::pair<int, int> attackCoords) {
+std::vector<std::vector<std::string> > Board::shoot(std::pair<int, int> attackCoords) {
   gameBoard[attackCoords.first][attackCoords.second] = "X";
   return gameBoard;
 }
@@ -83,9 +83,9 @@ std::pair<int, int> Board::inputCoords() {
   return attackCoords;
 }
 
-std::pair<std::vector<std::vector<std::string>>, std::vector<std::vector<std::string>>> Board::wasHit(
-    std::pair<int, int> attackCoords, std::vector<std::vector<std::string>> gameBoardAttack,
-    std::vector<std::vector<std::string>> gameBoard) {
+std::pair<std::vector<std::vector<std::string> >, std::vector<std::vector<std::string> > > Board::wasHit(
+    std::pair<int, int> attackCoords, std::vector<std::vector<std::string> > gameBoardAttack,
+    std::vector<std::vector<std::string> > gameBoard) {
   Config cfg;
   std::pair<int, int> dimensions = cfg.getConfig(cfg.configFile);
 
@@ -99,7 +99,7 @@ std::pair<std::vector<std::vector<std::string>>, std::vector<std::vector<std::st
     gameBoard[attackCoords.first][attackCoords.second] = "O";
     gameBoardAttack[attackCoords.first][attackCoords.second] = "O";
   }
-  std::pair<std::vector<std::vector<std::string>>, std::vector<std::vector<std::string>>> gameBoards =
+  std::pair<std::vector<std::vector<std::string> >, std::vector<std::vector<std::string> > > gameBoards =
       std::make_pair(gameBoard, gameBoardAttack);
   return gameBoards;
 }
